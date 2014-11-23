@@ -24,7 +24,7 @@ module Cityscape
     end
 
     def command
-      "phantomjs #{phantom_script_path} #{key_to_html_path}"
+      "bin/phantomjs #{phantom_script_path} #{key_to_html_path}"
     end
 
     def phantom_script_path
