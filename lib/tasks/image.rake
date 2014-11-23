@@ -6,5 +6,6 @@ end
 
 namespace :image do
   task fetch: :environment do
+    p "Fetch Start"
   end
 end
