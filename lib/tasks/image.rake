@@ -19,6 +19,6 @@ namespace :photo do
 
   desc 'clean'
   task clean: :environment do
-    `rm -rf #{Rails.root}/tmp/pages`
+    `rm -rf #{Rails.root}/tmp`
   end
 end

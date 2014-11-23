@@ -9,7 +9,7 @@ module Cityscape
     end
 
     def save_to_file
-      filename = "#{Rails.root}/tmp/pages/#{@key}.html"
+      filename = "#{Rails.root}/tmp/#{@key}.html"
       File.open(filename,"a") do |f|
         f.puts html
       end

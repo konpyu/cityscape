@@ -20,7 +20,7 @@ module Cityscape
     private
 
     def key_to_html_path
-      "#{Rails.root}/tmp/pages/#{@key}.html"
+      "#{Rails.root}/tmp/#{@key}.html"
     end
 
     def command
