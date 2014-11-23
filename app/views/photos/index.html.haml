@@ -1,1 +1,6 @@
 %p index
+- @photos.each do |photo|
+  %p
+    = photo.name
+    = photo.user_id
+    = photo.city_id
