@@ -4,6 +4,7 @@ class PhotosController < ApplicationController
   def index
     @city = City.find(1)
     @photos = Photo.active.order(id: :desc).page(params[:page]).per(12)
+    @photo_count = Photo.active.count
   end
 
   def destroy
