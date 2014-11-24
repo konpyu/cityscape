@@ -1,6 +1,7 @@
 %p
   = "#{@city.name}scape"
   = " #{@photo_count}件"
+  = link_to 'about', "/about"
 
 - @photos.each do |photo|
   %img(src="#{photo.image.url}")
