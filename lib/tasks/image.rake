@@ -7,7 +7,7 @@ end
 namespace :photo do
   desc 'fetch image'
   task fetch: :environment do
-    3.times do
+    10.times do
       latlng = City.find(1).latlng
       heading = 234
       Cityscape::Generator.new(*latlng, heading).execute

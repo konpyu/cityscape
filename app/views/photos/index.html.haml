@@ -1,7 +1,7 @@
-%p index
+%p
+  = "#{@city.name}scape"
+
 - @photos.each do |photo|
-  %p
-    = photo.name
-    = photo.user_id
-    = photo.city_id
   %img(src="#{photo.image.url}")
+  %p
+    = photo.created_at.to_s(:db)
