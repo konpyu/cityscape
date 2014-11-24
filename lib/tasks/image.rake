@@ -1,9 +1,3 @@
-def purge_image
-  if Image.count > 9500
-    Image.order(id: :desc).limit(500).delete_all
-  end
-end
-
 namespace :photo do
   desc 'fetch image'
   task fetch: :environment do
@@ -14,8 +8,11 @@ namespace :photo do
     end
   end
 
-  desc 'clean'
-  task clean: :environment do
-    `rm -rf #{Rails.root}/tmp`
+  desc 'delete old photo'
+  task purge: :environment do
+    # limitation of heroku
+    if Photo.all.count >= 9500
+      Photo.order(id: :asc).limit(300).destroy_all
+    end
   end
 end
