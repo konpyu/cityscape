@@ -14,10 +14,15 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
 gem 'kaminari'
+
+# file upload
 gem 'carrierwave'
 gem 'fog'
 gem 'unf'
 gem 'mini_magick'
+
+# webserver
+gem 'unicorn'
 
 group :production do
   gem "rails_12factor"
