@@ -7,14 +7,11 @@ end
 namespace :photo do
   desc 'fetch image'
   task fetch: :environment do
-    latlng = City.find(1).latlng
-    heading = 234
-    key = SecureRandom.hex(16)
-    Cityscape::PageMaker.new(*latlng, heading, key).save_to_file
-    fetcher = Cityscape::Fetcher.new(key)
-    fetcher.fetch
-    fetcher.upload
-    p "fin"
+    3.times do
+      latlng = City.find(1).latlng
+      heading = 234
+      Cityscape::Generator.new(*latlng, heading).execute
+    end
   end
 
   desc 'clean'
