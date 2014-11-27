@@ -30,7 +30,7 @@ module Cityscape
       photo.city_id = 1
       photo.lat = @lat
       photo.lng = @lng
-      photo.active = true
+      photo.active = false
       photo.save!
     end
 

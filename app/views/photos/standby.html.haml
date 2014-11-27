@@ -1,0 +1,14 @@
+%p
+  = "#{@city.name}scape"
+  = " #{@photo_count}件"
+  = link_to 'about', "/about"
+
+- @photos.each do |photo|
+  %img(src="#{photo.image.url}")
+  %p
+    = photo.created_at.to_s(:db)
+    = link_to 'map', "https://maps.google.co.jp/maps?ll=#{photo.lat},#{photo.lng}", target: "_blank"
+    = link_to 'delete', photo_path(photo.id), method: 'DELETE', data: { confirm: "Delete OK?" }
+    = link_to 'active', activate_photo_path(photo.id), method: 'PUT'
+
+= paginate @photos
