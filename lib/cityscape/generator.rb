@@ -9,7 +9,6 @@ module Cityscape
     end
 
     def save_to_file
-      p "save to file"
       filename = "#{Rails.root}/tmp/#{@key}.html"
       File.open(filename,"a") do |f|
         f.puts html
@@ -18,12 +17,10 @@ module Cityscape
     end
 
     def fetch
-      p "fetch"
       `#{command}`
     end
 
     def upload
-      p "upload"
       image_file = File.open("#{key_to_html_path}.png")
       photo = Photo.new
       photo.image = image_file

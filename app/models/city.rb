@@ -1,4 +1,5 @@
 class City < ActiveRecord::Base
+  scope :is_collect, -> { where(is_collect: true) }
   has_many :photos
   def latlng
     [
