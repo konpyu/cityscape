@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141123123459) do
+ActiveRecord::Schema.define(version: 20141129124144) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20141123123459) do
     t.float    "lng",        limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_collect",            default: false
   end
 
   create_table "photos", force: true do |t|

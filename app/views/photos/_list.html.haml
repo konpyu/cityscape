@@ -1,9 +1,9 @@
 .row
-  .col-md-8
+  .col-md-12
 
     - photos.each do |photo|
       .pics
-        %img.space-left-minus-p(src="#{photo.image.url.gsub("city-scape-dev", "city-scape")}")
+        %img.space-left-minus-p.fit(src="#{photo.image.url.gsub("city-scape-dev", "city-scape")}")
         %p
           = "#{photo.lat}-#{photo.lng}-#{photo.created_at.to_s(:db)}"
           = link_to 'map', "https://maps.google.co.jp/maps?ll=#{photo.lat},#{photo.lng}", target: "_blank"
