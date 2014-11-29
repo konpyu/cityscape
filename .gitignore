@@ -16,5 +16,4 @@ vendor/bundle
 .*.un~
 .env
 .DS_Store
-lib/assets/bower_components/
 public/uploads
