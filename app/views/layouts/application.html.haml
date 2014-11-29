@@ -7,15 +7,14 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-
-    /.navbar.navbar-fixed-top.navbar-default(role="navigation")
-    .navbar.navbar-default(role="navigation")
-      .container
-        .navbar-header
-          .collapse.navbar-collapse
-            %a.navbar-brand.animated(href="/")
-              Pariscape
-
     .container
-      .content
-        = yield
+      .row
+        .col-md-12
+          %h4.space-bottom-1h
+            = "Pariscape"
+            %span.space-left-1
+              = link_to 'about', "/about"
+            %span.pull-right
+              = "#{@photo_count} Pics | Last Update: 2014-11-10"
+
+      = yield

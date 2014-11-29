@@ -1,0 +1,14 @@
+.row
+  .col-md-8
+
+    - photos.each do |photo|
+      .pics
+        %img.space-left-minus-p(src="#{photo.image.url.gsub("city-scape-dev", "city-scape")}")
+        %p
+          = "#{photo.lat}-#{photo.lng}-#{photo.created_at.to_s(:db)}"
+          = link_to 'map', "https://maps.google.co.jp/maps?ll=#{photo.lat},#{photo.lng}", target: "_blank"
+          = link_to 'delete', photo_path(photo.id), method: 'DELETE', data: { confirm: "Delete OK?" }
+          - if mode == 'standby'
+            = link_to 'active', activate_photo_path(photo.id), method: 'PUT'
+
+    = paginate photos
