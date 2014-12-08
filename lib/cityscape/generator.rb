@@ -27,18 +27,28 @@ module Cityscape
       photo.city_id = 1
       photo.lat = @lat
       photo.lng = @lng
-      photo.active = false
+      photo.active = true
       photo.save!
     end
 
-    def cleanup
+    # drop garbage image
+    def check_invalid
+      img = MiniMagick::Image.new("#{key_to_html_path}.png")
+      [img.pixel_at(50,100), img.pixel_at(150,160)].all? { |c| c == '#E4E3DE' }
+    end
+
+    def crop
+      img = MiniMagick::Image.new("#{key_to_html_path}.png")
+      img.crop "628x334+12+20"
     end
 
     def execute
       save_to_file
       fetch
-      upload
-      cleanup
+      unless check_invalid
+        crop
+        upload
+      end
     end
 
     private
