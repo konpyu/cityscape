@@ -11,11 +11,13 @@
     .container
       .row
         .col-md-12
-          %h4.space-bottom-1h
-            = "Pariscape"
-            %span.space-left-1
-              = link_to 'about', "/about"
-            %span.pull-right
-              = "#{@photo_count} Pics | Last Update: 2014-11-10"
+          %nav.navbar.navbar-default.navbar-fixed-top(role="navigation")
+            .container
+              %h4.space-bottom-1h
+                = "Pariscape"
+                %span.space-left-1
+                  = link_to 'about', "/about"
+                %span.pull-right
+                  = "#{@photo_count} Pics | Last Update: 2014-11-10"
 
       = yield
