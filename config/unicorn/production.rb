@@ -2,21 +2,24 @@ worker_processes 1
 timeout 180
 preload_app true
 
-before_fork do |server, worker|
-  Signal.trap 'TERM' do
-    puts 'Unicorn master intercepting TERM and sending myself QUIT instead'
-    Process.kill 'QUIT', Process.pid
-  end
+# listen "/vol/apps/note/shared/tmp/sockets/unicorn.sock"
+pid    "/home/shime/cityscape/shared/tmp/pids/unicorn.pid"
 
-  defined?(ActiveRecord::Base) and
-    ActiveRecord::Base.connection.disconnect!
+before_fork do |server, worker|
+  defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
+  old_pid = "#{server.config[:pid]}.oldbin"
+  unless old_pid == server.pid
+    begin
+      Process.kill :QUIT, File.read(old_pid).to_i
+    rescue Errno::ENOENT, Errno::ESRCH
+    end
+  end
 end
 
 after_fork do |server, worker|
-  Signal.trap 'TERM' do
-    puts 'Unicorn worker intercepting TERM and doing nothing. Wait for master to send QUIT'
-  end
+  # if ['production', 'preview'].index(ENV['RAILS_ENV'])
+  #   GC.disable
+  # end
 
-  defined?(ActiveRecord::Base) and
-    ActiveRecord::Base.establish_connection
+  defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
 end
