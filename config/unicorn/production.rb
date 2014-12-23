@@ -2,7 +2,7 @@ worker_processes 1
 timeout 180
 preload_app true
 
-# listen "/vol/apps/note/shared/tmp/sockets/unicorn.sock"
+listen "/home/shime/cityscape/shared/tmp/sockets/unicorn.sock"
 pid    "/home/shime/cityscape/shared/tmp/pids/unicorn.pid"
 
 before_fork do |server, worker|
