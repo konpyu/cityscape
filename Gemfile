@@ -30,3 +30,11 @@ gem 'mini_magick'
 group :production do
   gem "rails_12factor"
 end
+
+group :deployment do
+  gem 'capistrano', '~> 3.2.1'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano3-unicorn'
+end
