@@ -50,6 +50,6 @@ test:
 production:
   <<: *default
   database: cityscape_production
-  username: cityscape
+  username: root
   password: <%= ENV['CITYSCAPE_DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock # centos7 + yum
