@@ -2,10 +2,10 @@ worker_processes 1
 timeout 180
 preload_app true
 
-listen "/home/shime/cityscape/shared/tmp/sockets/unicorn.sock"
-pid    "/home/shime/cityscape/shared/tmp/pids/unicorn.pid"
+listen "/mnt/app/cityscape/shared/tmp/sockets/unicorn.sock"
+pid    "/mnt/app/cityscape/shared/tmp/pids/unicorn.pid"
 
-LOG_DIR = '/home/shime/cityscape/shared/log/'
+LOG_DIR = '/mnt/app/cityscape/shared/log/'
 stderr_path LOG_DIR + "unicorn.stderr.log"
 stdout_path LOG_DIR + "unicorn.stdout.log"
 

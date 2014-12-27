@@ -9,7 +9,7 @@ set :repo_url, 'git@github.com:konpyu/cityscape.git'
 set :branch, 'master'
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/home/shime/cityscape'
+set :deploy_to, '/mnt/app/cityscape'
 
 # Default value for :scm is :git
 set :scm, :git
